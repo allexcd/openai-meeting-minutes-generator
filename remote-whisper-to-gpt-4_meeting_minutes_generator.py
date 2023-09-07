@@ -116,6 +116,8 @@ def save_as_docx(minutes, filename):
         doc.add_paragraph()
     doc.save(filename)
 
+    print("Meeting minutes data saved to document at: ", filename)
+
 if __name__ == "__main__":
     # Check if there are enough arguments provided
     if len(sys.argv) < 3:
@@ -127,7 +129,5 @@ if __name__ == "__main__":
 
     transcription = transcribe_audio(audio_file_path)
     minutes = meeting_minutes(transcription)
-
-    print(minutes)
 
     save_as_docx(minutes, docx_file_path)
